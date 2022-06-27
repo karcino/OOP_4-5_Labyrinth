@@ -9,7 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
-        System.out.println(Arrays.toString(arr));
+        int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
+
+        for (int[] a : arr) {
+            System.out.println(Arrays.toString(a));
+        }
     }
 }

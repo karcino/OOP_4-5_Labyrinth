@@ -37,7 +37,7 @@ public final class FileHandler {
         return tempStr.toString();
     }
 
-    public static int[] readIntArrayFromFile(String filename) {
+    public static int[][] readIntArrayFromFile(String filename) {
 
 
         List<int[]> intList = new ArrayList<>();
@@ -64,7 +64,7 @@ public final class FileHandler {
             System.out.println(e);
         }
 
-        int[] intArray = new int[intList.size()];
+        int[][] intArray = new int[intList.size()][2];
         for(int i = 0; i < intList.size(); i++) intArray[i] = intList.get(i);
 
 
