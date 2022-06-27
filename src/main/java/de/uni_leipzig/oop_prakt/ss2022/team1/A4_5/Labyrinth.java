@@ -15,4 +15,5 @@ public class Labyrinth {
     public int[][] getKanten() {
         return kanten;
     }
+
 }
