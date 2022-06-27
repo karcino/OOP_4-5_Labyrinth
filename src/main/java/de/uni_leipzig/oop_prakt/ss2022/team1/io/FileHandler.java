@@ -47,7 +47,9 @@ public final class FileHandler {
             String line = br.readLine();
 
             while (line != null) {
+                // Regex Zeichen für Leerzeichen:\\s+
                 String[] kantenString = line.trim().split("\\s+");
+
                 for (String nummer : kantenString){
                     intList.add(Integer.parseInt(nummer));
                 }
