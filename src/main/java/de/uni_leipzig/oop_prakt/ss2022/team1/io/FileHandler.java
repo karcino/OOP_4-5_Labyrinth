@@ -40,7 +40,7 @@ public final class FileHandler {
     public static int[] readIntArrayFromFile(String filename) {
 
 
-        List<Integer> intList = new ArrayList<>();
+        List<int[]> intList = new ArrayList<>();
 
         try(FileReader fr = new FileReader(filename);
             BufferedReader br = new BufferedReader(fr)){
@@ -49,10 +49,11 @@ public final class FileHandler {
             while (line != null) {
                 // Regex Zeichen für Leerzeichen:\\s+
                 String[] kantenString = line.trim().split("\\s+");
-
-                for (String nummer : kantenString){
-                    intList.add(Integer.parseInt(nummer));
-                }
+                int[] kante = new int[2];
+                kante[0] = Integer.parseInt(kantenString[0]);
+                kante[1] = Integer.parseInt(kantenString[1]);
+                intList.add(kante);
+                
                 line = br.readLine();
             }
 
