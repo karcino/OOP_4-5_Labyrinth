@@ -1,5 +1,9 @@
+package de.uni_leipzig.oop_prakt.ss2022.team1.io;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Die Klasse FileHandler ist zuständig für das Einlesen und Schreiben von Textdateien.
  *
@@ -33,6 +37,42 @@ public final class FileHandler {
 
         return tempStr.toString();
     }
+
+    public static int[] readIntArrayFromFile(String filename) {
+        StringBuilder tempStr = new StringBuilder();
+
+        List<Integer> intList = new ArrayList<Integer>();
+
+
+
+        try(FileReader fr = new FileReader(filename);
+            BufferedReader br = new BufferedReader(fr)){
+            String line = br.readLine();
+
+            while (line != null) {
+                String[] strs = line.trim().split("\\s+");
+                for (String str : strs){
+                    intList.add(Integer.parseInt(str));
+                }
+                line = br.readLine();
+            }
+            String everything = tempStr.toString();
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        int[] intArray = new int[intList.size()];
+        for(int i = 0; i < intList.size(); i++) intArray[i] = intList.get(i);
+
+
+        return intArray;
+    }
+
+
+
 
     /**
      * Schreibt den String in die Datei.
