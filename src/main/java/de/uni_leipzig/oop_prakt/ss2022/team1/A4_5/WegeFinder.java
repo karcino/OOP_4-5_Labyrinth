@@ -12,22 +12,20 @@ public class WegeFinder {
         this.startknoten = startknoten;
         this.zielknoten = zielknoten;
         //TODO Labyrinth mit Kanten[] intitialisieren
-        Labyrinth labyrinth1 = new Labyrinth(kanten);
+
+        // Labyrinth labyrinth1 = new Labyrinth(kanten);
     }
 
     public List<List<Knoten>> getWege() {
         return wege;
     }
 
-    private List<Knoten> findeWeg(Knoten startKnoten, List<Knoten>) {
-
-        //TODO Rekursion implementiern
-
-
+    private List<Knoten> findeWeg(List<Knoten> aktuellerWeg) {
+        return findeWeg(null);
 
     }
+
     public void findeAlleWege() {
-        while () {
 
     }
 }
