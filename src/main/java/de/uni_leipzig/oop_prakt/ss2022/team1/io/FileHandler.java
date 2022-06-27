@@ -39,7 +39,6 @@ public final class FileHandler {
 
     public static int[] readIntArrayFromFile(String filename) {
 
-
         List<Integer> intList = new ArrayList<>();
 
         try(FileReader fr = new FileReader(filename);
@@ -48,7 +47,7 @@ public final class FileHandler {
 
             while (line != null) {
                 // Regex Zeichen für Leerzeichen:\\s+
-                String[] kantenString = line.trim().split("\\s+");
+                String[] kantenString = line.trim().split("\\s+"); //trims all surrounding spaces, and splits at space
 
                 for (String nummer : kantenString){
                     intList.add(Integer.parseInt(nummer));
@@ -100,6 +99,5 @@ public final class FileHandler {
             e.printStackTrace();
             return;
         }
-
     }
 }
