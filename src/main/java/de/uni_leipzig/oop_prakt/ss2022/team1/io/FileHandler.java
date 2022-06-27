@@ -48,12 +48,13 @@ public final class FileHandler {
 
             while (line != null) {
                 // Regex Zeichen für Leerzeichen:\\s+
+
                 String[] kantenString = line.trim().split("\\s+");
                 int[] kante = new int[2];
                 kante[0] = Integer.parseInt(kantenString[0]);
                 kante[1] = Integer.parseInt(kantenString[1]);
                 intList.add(kante);
-                
+
                 line = br.readLine();
             }
 
@@ -101,6 +102,5 @@ public final class FileHandler {
             e.printStackTrace();
             return;
         }
-
     }
 }
