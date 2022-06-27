@@ -10,11 +10,12 @@ public class Main {
     public static void main(String[] args) {
         int[][] kanten = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
 
+        int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
 
+        for (int[] a : arr) {
+            System.out.println(Arrays.toString(a));
+        }
 
-        /*int[] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
-        System.out.println(Arrays.toString(arr));
-    */
     }
 }
 

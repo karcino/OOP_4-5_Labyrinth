@@ -37,9 +37,10 @@ public final class FileHandler {
         return tempStr.toString();
     }
 
-    public static int[] readIntArrayFromFile(String filename) {
+    public static int[][] readIntArrayFromFile(String filename) {
 
-        List<Integer> intList = new ArrayList<>();
+
+        List<int[]> intList = new ArrayList<>();
 
         try(FileReader fr = new FileReader(filename);
             BufferedReader br = new BufferedReader(fr)){
@@ -47,11 +48,13 @@ public final class FileHandler {
 
             while (line != null) {
                 // Regex Zeichen für Leerzeichen:\\s+
-                String[] kantenString = line.trim().split("\\s+"); //trims all surrounding spaces, and splits at space
 
-                for (String nummer : kantenString){
-                    intList.add(Integer.parseInt(nummer));
-                }
+                String[] kantenString = line.trim().split("\\s+");
+                int[] kante = new int[2];
+                kante[0] = Integer.parseInt(kantenString[0]);
+                kante[1] = Integer.parseInt(kantenString[1]);
+                intList.add(kante);
+
                 line = br.readLine();
             }
 
@@ -61,7 +64,7 @@ public final class FileHandler {
             System.out.println(e);
         }
 
-        int[] intArray = new int[intList.size()];
+        int[][] intArray = new int[intList.size()][2];
         for(int i = 0; i < intList.size(); i++) intArray[i] = intList.get(i);
 
 
