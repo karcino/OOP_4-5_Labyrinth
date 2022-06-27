@@ -8,12 +8,12 @@ public class WegeFinder {
     private int zielknoten;
     private List<List<Knoten>> wege;
 
-    public WegeFinder(int[] kanten, int startknoten, int zielknoten) {
+    public WegeFinder(int[][] kanten, int startknoten, int zielknoten) {
         this.startknoten = startknoten;
         this.zielknoten = zielknoten;
         //TODO Labyrinth mit Kanten[] intitialisieren
 
-        // Labyrinth labyrinth1 = new Labyrinth(kanten);
+        this.labyrinth = new Labyrinth(kanten);
     }
 
     public List<List<Knoten>> getWege() {

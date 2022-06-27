@@ -4,9 +4,8 @@ public class Knoten {
     private int nummer;
     private Knoten[] nachbarknoten;
 
-    public Knoten(int nummer, Knoten[] nachbarknoten) {
+    public Knoten(int nummer) {
         this.nummer = nummer;
-        this.nachbarknoten = nachbarknoten;
     }
 
     public int getNummer() {
@@ -15,5 +14,9 @@ public class Knoten {
 
     public Knoten[] getNachbarknoten() {
         return nachbarknoten;
+    }
+
+    public void setNachbarknoten(Knoten[] nachbarknoten) {
+        this.nachbarknoten = nachbarknoten;
     }
 }
