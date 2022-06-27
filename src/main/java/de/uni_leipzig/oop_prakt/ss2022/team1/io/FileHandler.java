@@ -27,7 +27,6 @@ public final class FileHandler {
                 tempStr.append(System.lineSeparator());
                 line = br.readLine();
             }
-            String everything = tempStr.toString();
 
         } catch (FileNotFoundException e) {
             System.out.println(e);
@@ -39,24 +38,21 @@ public final class FileHandler {
     }
 
     public static int[] readIntArrayFromFile(String filename) {
-        StringBuilder tempStr = new StringBuilder();
-
-        List<Integer> intList = new ArrayList<Integer>();
 
 
+        List<Integer> intList = new ArrayList<>();
 
         try(FileReader fr = new FileReader(filename);
             BufferedReader br = new BufferedReader(fr)){
             String line = br.readLine();
 
             while (line != null) {
-                String[] strs = line.trim().split("\\s+");
-                for (String str : strs){
-                    intList.add(Integer.parseInt(str));
+                String[] kantenString = line.trim().split("\\s+");
+                for (String nummer : kantenString){
+                    intList.add(Integer.parseInt(nummer));
                 }
                 line = br.readLine();
             }
-            String everything = tempStr.toString();
 
         } catch (FileNotFoundException e) {
             System.out.println(e);
