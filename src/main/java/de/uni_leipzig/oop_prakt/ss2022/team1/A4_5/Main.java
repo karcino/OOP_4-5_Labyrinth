@@ -11,8 +11,19 @@ public class Main {
 
         int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
 
+<<<<<<< Updated upstream
         for (int[] a : arr) {
             System.out.println(Arrays.toString(a));
         }
+=======
+        WegeFinder wegeFinder = new WegeFinder(arr, 1, 22);
+
+
+        wegeFinder.findeAlleWege();
+        wegeFinder.printWege();
+
+
+
+>>>>>>> Stashed changes
     }
 }
