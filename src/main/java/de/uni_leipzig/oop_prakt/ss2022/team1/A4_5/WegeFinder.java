@@ -9,13 +9,10 @@ public class WegeFinder {
     private Integer zielknoten;
     private List<List<Integer>> wege;
 
-    public WegeFinder(int[] kanten, int startknoten, int zielknoten) {
+    public WegeFinder(int[][] kanten, int startknoten, int zielknoten) {
         this.startknoten = startknoten;
         this.zielknoten = zielknoten;
 
-<<<<<<< Updated upstream
-        // Labyrinth labyrinth1 = new Labyrinth(kanten);
-=======
         //Labyrinth wird initialisiert
         this.labyrinth = new Labyrinth(kanten);
         this.wege = new ArrayList<List<Integer>>();
@@ -23,7 +20,6 @@ public class WegeFinder {
 //            k.printKnoten();
 //        }
 
->>>>>>> Stashed changes
     }
 
     public List<List<Integer>> getWege() {
@@ -53,12 +49,7 @@ public class WegeFinder {
 
         List<Integer> weg = findeWeg(this.startknoten, new ArrayList<>());
         wege.add(weg);
-        List<Integer> weg1 = findeWeg(this.startknoten, new ArrayList<>());
-        wege.add(weg1);
-        List<Integer> weg2 = findeWeg(this.startknoten, new ArrayList<>());
-        wege.add(weg2);
-        List<Integer> weg3 = findeWeg(this.startknoten, new ArrayList<>());
-        wege.add(weg3);
+
 
 
     }
@@ -69,7 +60,7 @@ public class WegeFinder {
                 return false;
             }
         }
-            return true;
+        return true;
 
     }
     public void printWege() {

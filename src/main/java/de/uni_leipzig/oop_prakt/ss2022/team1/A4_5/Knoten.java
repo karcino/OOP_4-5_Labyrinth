@@ -1,3 +1,4 @@
+
 package de.uni_leipzig.oop_prakt.ss2022.team1.A4_5;
 
 import java.util.*;
@@ -8,22 +9,16 @@ public class Knoten {
     private Set<Integer> nachbarknoten;
     private boolean visited;
 
-    public Knoten(int nummer, Knoten[] nachbarknoten) {
+    public Knoten(int nummer) {
         this.nummer = nummer;
-<<<<<<< Updated upstream
-        this.nachbarknoten = nachbarknoten;
-=======
         this.nachbarknoten = new HashSet<>();
         this.visited = false;
->>>>>>> Stashed changes
     }
 
 
     public Set<Integer> getNachbarknoten() {
         return nachbarknoten;
     }
-<<<<<<< Updated upstream
-=======
 
     public void setNachbarknoten(int nachbarknoten) {
         this.nachbarknoten.add((int) nachbarknoten);
@@ -40,5 +35,6 @@ public class Knoten {
     public void printKnoten(){
         System.out.println("Knotennummer: " + this.nummer + "  Nachbarknoten: " + getNachbarknoten());
     }
->>>>>>> Stashed changes
 }
+
+

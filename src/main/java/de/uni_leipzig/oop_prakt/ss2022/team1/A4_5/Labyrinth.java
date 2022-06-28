@@ -1,18 +1,14 @@
+
 package de.uni_leipzig.oop_prakt.ss2022.team1.A4_5;
 
-<<<<<<< Updated upstream
-=======
 import java.util.*;
 
->>>>>>> Stashed changes
 public class Labyrinth {
     private Set<Knoten> knoten;
     private int[][] kanten;
 
     public Labyrinth(int[][] kanten) {
         this.kanten = kanten;
-<<<<<<< Updated upstream
-=======
 
         // Finde alle einzelknoten ohne Duplikate (deshalb Integer Set)
         Set<Integer> tempSet = new HashSet<>();
@@ -40,7 +36,6 @@ public class Labyrinth {
 
         }
 
->>>>>>> Stashed changes
     }
 
     public Set<Knoten> getKnoten() {
@@ -66,3 +61,4 @@ public class Labyrinth {
     }
 
 }
+
