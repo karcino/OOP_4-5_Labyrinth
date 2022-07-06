@@ -13,9 +13,11 @@ public class WegeFinder {
         this.startknoten = startknoten;
         this.zielknoten = zielknoten;
 
+
         //Labyrinth wird initialisiert
         this.labyrinth = new Labyrinth(kanten);
         this.wege = new ArrayList<List<Integer>>();
+        
 //        for (Knoten k : this.labyrinth.getKnoten()) {
 //            k.printKnoten();
 //        }

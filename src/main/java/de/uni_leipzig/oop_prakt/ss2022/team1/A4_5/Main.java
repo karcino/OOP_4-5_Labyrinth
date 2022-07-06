@@ -6,7 +6,6 @@ import java.util.*;
 
 public class Main {
 
-
     public static void main(String[] args) {
 
         int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
@@ -17,5 +16,7 @@ public class Main {
         wegeFinder.findeAlleWege();
         wegeFinder.printWege();
 
+
     }
 }
+

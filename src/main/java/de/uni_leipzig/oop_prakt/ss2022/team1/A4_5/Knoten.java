@@ -35,6 +35,10 @@ public class Knoten {
     public void printKnoten(){
         System.out.println("Knotennummer: " + this.nummer + "  Nachbarknoten: " + getNachbarknoten());
     }
+
+    public void setNachbarknoten(Knoten[] nachbarknoten) {
+        this.nachbarknoten = nachbarknoten;
+    }
 }
 
 
