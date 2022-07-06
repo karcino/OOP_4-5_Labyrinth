@@ -10,11 +10,12 @@ public class Main {
 
         int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
 
-        WegeFinder wegeFinder = new WegeFinder(arr, 1, 10);
+        WegeFinder wegeFinder = new WegeFinder(arr, 1, 22);
 
-        for (int[] a : arr) {
-            System.out.println(Arrays.toString(a));
-        }
+
+        wegeFinder.findeAlleWege();
+        wegeFinder.printWege();
+
 
     }
 }

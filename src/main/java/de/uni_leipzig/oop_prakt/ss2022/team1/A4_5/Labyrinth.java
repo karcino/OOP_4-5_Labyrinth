@@ -1,37 +1,66 @@
+
 package de.uni_leipzig.oop_prakt.ss2022.team1.A4_5;
 
+
+import java.util.*;
 import de.uni_leipzig.oop_prakt.ss2022.team1.io.FileHandler;
 
-import java.util.HashSet;
-import java.util.Set;
 
 public class Labyrinth {
-    private Knoten[] knoten;
+    private Set<Knoten> knoten;
     private int[][] kanten;
 
     public Labyrinth(int[][] kanten) {
         this.kanten = kanten;
-        // Finde alle einzelknoten ohne Duplikate
-        Set<Knoten> tempSet = new HashSet<Knoten>();
-        for (int[] kante: kanten) {
-            for(int knoten : kante){
-                tempSet.add(new Knoten(knoten));
+
+        // Finde alle einzelknoten ohne Duplikate (deshalb Integer Set)
+        Set<Integer> tempSet = new HashSet<>();
+        for (int[] kante : kanten) {
+            for (int knoten : kante) {
+                tempSet.add(knoten);
             }
         }
-        this.knoten = new Knoten[tempSet.size()];
-        for (int i = 0; i < kanten.length; i++) {
-
+        // Erstelle für jeden Einzelknoten ein Knotenelement und füge es dem Knoten-Set hinzu
+        this.knoten = new HashSet<>();
+        for (Integer k : tempSet) {
+            this.knoten.add(new Knoten(k));
         }
 
+        // Füge jedem Knoten die Nachbarknoten als Integer hinzu. Diese können dann mittels "getKnotenByNummer" abgerufen werden.
+        for (Knoten k : this.knoten) {
+            for (int[] kante : kanten) {
+                if (k.getNummer() == kante[0]) {
+                    k.setNachbarknoten(kante[1]);
+                }
+                if (k.getNummer() == kante[1]) {
+                    k.setNachbarknoten(kante[0]);
+                }
+            }
 
+        }
     }
 
-    public Knoten[] getKnoten() {
+    public Set<Knoten> getKnoten() {
         return knoten;
+    }
+
+    public Knoten getKnotenByNummer(int i) {
+        return knoten.stream()
+                .filter(x -> x.getNummer() == i)
+                .findFirst()
+                .get();
     }
 
     public int[][] getKanten() {
         return kanten;
     }
 
+    public void printAlleKnoten(){
+        for (Knoten k : this.knoten) {
+            System.out.print(k.getNummer());
+            System.out.print(" ");
+        }
+    }
+
 }
+
