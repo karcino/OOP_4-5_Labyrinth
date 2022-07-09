@@ -46,24 +46,60 @@ public class WegeFinder {
     }
 
 
-    public void findeWegeVoid(Integer startknoten, List<Integer> aktuellerWeg) {
+//    public void findeWegeVoid(Integer aktuellerKnoten, List<Integer> aktuellerWeg) {
+//
+//        //System.out.println(aktuellerWeg);
+//        Knoten start = labyrinth.getKnotenByNummer(aktuellerKnoten);
+//        aktuellerWeg.add(aktuellerKnoten);
+//
+//        // Iteriere durch alle Nachbarknoten
+//        for (Integer nachbar : start.getNachbarknoten()) {
+//            // Prüfe, ob nachbar bereits in aktuellem Weg vorhanden ist
+//            if (!aktuellerWeg.contains(nachbar)) {
+//                // Wenn nicht, gehe bei nachbarn weiter
+//                findeWegeVoid(nachbar, aktuellerWeg);
+//            }
+//        }
+//
+//        if (aktuellerKnoten.equals(this.zielknoten) && istUnbekannterWeg(aktuellerWeg)) {
+//            this.wege.add(aktuellerWeg);
+//        }
+//
+//    }
 
-        //System.out.println(aktuellerWeg);
-        Knoten start = labyrinth.getKnotenByNummer(startknoten);
-        aktuellerWeg.add(startknoten);
 
+    public void findeWegeVoid(Integer from, Integer to , List<Integer> aktuellerWeg) {
 
-        for (Integer nachbar : start.getNachbarknoten()) {
-            if (!aktuellerWeg.contains(nachbar)) {
-                findeWegeVoid(nachbar, aktuellerWeg);
+        Knoten start = labyrinth.getKnotenByNummer(from);
+        aktuellerWeg.add(from);
+
+        if (from.equals(this.zielknoten)) {
+            System.out.println("s-z-Weg: " + aktuellerWeg);
+            this.wege.add(aktuellerWeg);
+            aktuellerWeg.remove(aktuellerWeg.size() -1);
+        }else {
+            Integer nachbarArray[] = new Integer[start.getNachbarknoten().size()];
+            start.getNachbarknoten().toArray(nachbarArray);
+            System.out.println(aktuellerWeg);
+
+            for (int i = 0; i < nachbarArray.length; i++) {
+                int nachbar = (int) nachbarArray[i];
+                System.out.println("Aufruf from: " + from + " mit nachbar: " + nachbar);
+
+                // Prüfe, ob nachbar bereits in aktuellem Weg vorhanden ist
+                if (!aktuellerWeg.contains(nachbar)) {
+                    // Wenn nicht, gehe bei nachbarn weiter
+                    findeWegeVoid(nachbar, to, aktuellerWeg);
+                }
+
             }
         }
 
-        if (startknoten.equals(this.zielknoten) && istUnbekannterWeg(aktuellerWeg)) {
-            this.wege.add(aktuellerWeg);
-        }
-
     }
+
+
+
+
 
 
 
@@ -71,9 +107,8 @@ public class WegeFinder {
 
 
 
-        findeWegeVoid(this.startknoten, new ArrayList<>());
-        findeWegeVoid(this.startknoten, new ArrayList<>());
-        findeWegeVoid(this.startknoten, new ArrayList<>());
+        findeWegeVoid(this.startknoten, this.zielknoten, new ArrayList<>());
+
 
 
 
@@ -95,7 +130,6 @@ public class WegeFinder {
     public void printWege() {
         for (List<Integer> weg : wege) {
             System.out.println(weg);
-
         }
     }
 

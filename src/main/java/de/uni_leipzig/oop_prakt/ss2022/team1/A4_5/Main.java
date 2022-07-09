@@ -8,9 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-1.graph");
+        int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-3.graph");
 
-        WegeFinder wegeFinder = new WegeFinder(arr, 6, 1);
+        WegeFinder wegeFinder = new WegeFinder(arr, 1, 8);
 
 
         wegeFinder.findeAlleWege();

@@ -27,6 +27,9 @@ public class Knoten {
     public void setVisited() {
         this.visited = true;
     }
+    public boolean getVisited() {
+        return this.visited;
+    }
 
     public int getNummer() {
         return nummer;
