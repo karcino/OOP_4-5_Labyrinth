@@ -45,16 +45,40 @@ public class WegeFinder {
 
     }
 
+
+    public void findeWegeVoid(Integer startknoten, List<Integer> aktuellerWeg) {
+
+        //System.out.println(aktuellerWeg);
+        Knoten start = labyrinth.getKnotenByNummer(startknoten);
+        aktuellerWeg.add(startknoten);
+
+
+        for (Integer nachbar : start.getNachbarknoten()) {
+            if (!aktuellerWeg.contains(nachbar)) {
+                findeWegeVoid(nachbar, aktuellerWeg);
+            }
+        }
+
+        if (startknoten.equals(this.zielknoten) && istUnbekannterWeg(aktuellerWeg)) {
+            this.wege.add(aktuellerWeg);
+        }
+
+    }
+
+
+
     public void findeAlleWege() {
 
 
-        List<Integer> weg = findeWeg(this.startknoten, new ArrayList<>());
-        wege.add(weg);
-        List<Integer> weg1 = findeWeg(this.startknoten, new ArrayList<>());
-        wege.add(weg1);
-        List<Integer> weg2 = findeWeg(this.startknoten, new ArrayList<>());
-        wege.add(weg2);
 
+        findeWegeVoid(this.startknoten, new ArrayList<>());
+        findeWegeVoid(this.startknoten, new ArrayList<>());
+        findeWegeVoid(this.startknoten, new ArrayList<>());
+
+
+
+        //List<Integer> weg = findeWeg(this.startknoten, new ArrayList<>());
+        //wege.add(weg);
 
 
     }
