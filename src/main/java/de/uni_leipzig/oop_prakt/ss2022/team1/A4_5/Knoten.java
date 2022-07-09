@@ -12,7 +12,7 @@ public class Knoten {
     public Knoten(int nummer) {
         this.nummer = nummer;
         this.nachbarknoten = new HashSet<>();
-        this.visited = false;
+       this.visited = false;
     }
 
 
@@ -36,7 +36,7 @@ public class Knoten {
         System.out.println("Knotennummer: " + this.nummer + "  Nachbarknoten: " + getNachbarknoten());
     }
 
-    public void setNachbarknoten(Knoten[] nachbarknoten) {
+    public void setNachbarknoten(Set<Integer> nachbarknoten) {
         this.nachbarknoten = nachbarknoten;
     }
 }

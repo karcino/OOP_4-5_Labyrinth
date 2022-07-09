@@ -48,9 +48,12 @@ public class WegeFinder {
     public void findeAlleWege() {
 
 
-
         List<Integer> weg = findeWeg(this.startknoten, new ArrayList<>());
         wege.add(weg);
+        List<Integer> weg1 = findeWeg(this.startknoten, new ArrayList<>());
+        wege.add(weg1);
+        List<Integer> weg2 = findeWeg(this.startknoten, new ArrayList<>());
+        wege.add(weg2);
 
 
 

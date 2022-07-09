@@ -1,10 +1,8 @@
 
 package de.uni_leipzig.oop_prakt.ss2022.team1.A4_5;
 
-
 import java.util.*;
 import de.uni_leipzig.oop_prakt.ss2022.team1.io.FileHandler;
-
 
 public class Labyrinth {
     private Set<Knoten> knoten;
