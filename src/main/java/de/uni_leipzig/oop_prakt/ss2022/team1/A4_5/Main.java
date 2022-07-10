@@ -8,13 +8,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-3.graph");
+        int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-2.graph");
 
-        WegeFinder wegeFinder = new WegeFinder(arr, 1, 8);
+        WegeFinder wegeFinder = new WegeFinder(arr, 72, 70);
+        wegeFinder.printLabyrinth();
+        //wegeFinder.printWege();
 
-
-        wegeFinder.findeAlleWege();
-        wegeFinder.printWege();
+        System.out.println("------------------");
+        System.out.println("Es gibt " + wegeFinder.getAnzahlWege() + " kreisfreie Wege zwischen den Knoten " + wegeFinder.getStartknoten() + " und " +wegeFinder.getZielknoten());
 
 
     }
