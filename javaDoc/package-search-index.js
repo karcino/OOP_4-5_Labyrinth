@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"de.uni_leipzig.oop_prakt.ss2022.team1.A4_5"},{"l":"de.uni_leipzig.oop_prakt.ss2022.team1.io"}];updateSearchResults();

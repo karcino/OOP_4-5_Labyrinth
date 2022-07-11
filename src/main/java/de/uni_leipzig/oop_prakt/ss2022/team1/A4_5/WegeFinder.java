@@ -2,6 +2,9 @@ package de.uni_leipzig.oop_prakt.ss2022.team1.A4_5;
 
 import java.util.*;
 
+/**
+ * Instanz findet alle Wege von start nach zielknoten in einem Labyrinth.
+ */
 public class WegeFinder {
 
     private Labyrinth labyrinth;
@@ -9,6 +12,13 @@ public class WegeFinder {
     private Integer zielknoten;
     private List<Stack> wege;
 
+    /**
+     * Konstruktor Wegefinder
+     *
+     * @param kanten Kanten des Labyrinth-Graph's
+     * @param startknoten Startknoten
+     * @param zielknoten Zielknoten
+     */
     public WegeFinder(int[][] kanten, int startknoten, int zielknoten) {
         this.startknoten = startknoten;
         this.zielknoten = zielknoten;
@@ -24,6 +34,11 @@ public class WegeFinder {
         findeWege(this.startknoten, this.zielknoten,startstack);
     }
 
+    /**
+     * @param start Startknotennummer
+     * @param ziel Zielknotennummer
+     * @param aktuellerWeg temporärer Stack zum speichern der durchlaufenen Knoten
+     */
     private void findeWege(Integer start, Integer ziel , Stack<Integer> aktuellerWeg) {
         //System.out.println(aktuellerWeg);
 
@@ -62,22 +77,39 @@ public class WegeFinder {
         }
     }
 
+    /**
+     * Getter Startknoten
+     *
+     * @return Startknotennummer
+     */
     public Integer getStartknoten() {
         return startknoten;
     }
 
+    /**
+     * Getter Zielknoten
+     *
+     * @return Zielknotennummer
+     */
     public Integer getZielknoten() {
         return zielknoten;
     }
 
-    public List<Stack> getWege() {
+    /*public List<Stack> getWege() {
         return wege;
-    }
+    }*/
 
+    /**
+     * Gibt Anzahl aller möglichen Wege zurück.
+     * @return Anzahl der Wege
+     */
     public int getAnzahlWege(){
         return this.wege.size();
     }
 
+    /**
+     * Gibt alle möglichen Wege auf der Konsole aus.
+     */
     public void printWege() {
         System.out.println("Alle wege: ");
         for (Stack weg : this.wege) {
@@ -85,10 +117,12 @@ public class WegeFinder {
         }
     }
 
+    /**
+     * Gibt alle Knoten und dessen Nachbarknoten auf der Konsole aus.
+     */
     public void printLabyrinth(){
         for (Knoten k : this.labyrinth.getKnoten()) {
             k.printKnoten();
         }
     }
-
 }
