@@ -40,7 +40,6 @@ public class WegeFinder {
      * @param aktuellerWeg temporärer Stack zum speichern der durchlaufenen Knoten
      */
     private void findeWege(Integer start, Integer ziel , Stack<Integer> aktuellerWeg) {
-        //System.out.println(aktuellerWeg);
 
         // Get Knotenelement mit startnummer
         Knoten startKnoten = labyrinth.getKnotenByNummer(start);
@@ -59,8 +58,6 @@ public class WegeFinder {
                 // Zielknoten hinzufügen und erfolgreichen Weg abspeichern
                 temp.push(nachbar);
                 this.wege.add(temp);
-
-                //System.out.println(temp + " ------ S-Z-Weg");
             }
 
             // Wenn der nachbar noch nicht im Weg vorhanden ist

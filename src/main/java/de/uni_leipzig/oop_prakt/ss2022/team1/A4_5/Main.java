@@ -18,7 +18,7 @@ public class Main {
         int[][] arr = FileHandler.readIntArrayFromFile("labyrinth-2.graph");
 
         WegeFinder wegeFinder = new WegeFinder(arr, 72, 70);
-        wegeFinder.printLabyrinth();
+        //wegeFinder.printLabyrinth();
         //wegeFinder.printWege();
 
         System.out.println("------------------");
